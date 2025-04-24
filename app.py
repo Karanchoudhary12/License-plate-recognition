@@ -36,7 +36,7 @@ def encrypt_data(data):
 
 encrypted_stolen_plates = encrypt_data({
     "LSI5EBC": "Reported stolen - Chennai",
-    "KA09XY9876": "Police Alert - Bengaluru",
+    "SN66XMZ": "Police Alert - Bengaluru",
     "MH12ZZ0001": "Missing vehicle - Pune"
 })
 
