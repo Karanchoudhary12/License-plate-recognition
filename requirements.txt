@@ -1,6 +1,6 @@
 torch==2.2.1
 opencv-python-headless==4.8.1.78
-opencv-python==  
+opencv-python==3.4.0.14
 ultralytics==8.1.1
 streamlit==1.32.2
 easyocr
