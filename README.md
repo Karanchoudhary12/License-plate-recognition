@@ -59,7 +59,7 @@ smart-number-plate-detection/
 
 ## 🌐 Deployed App
 
-[Access Live Application]()
+[Access Live Application](https://license-plate-recognition-2tucufhdifnaomap8itlvt.streamlit.app/)
 
 ---
 
