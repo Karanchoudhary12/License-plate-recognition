@@ -12,7 +12,7 @@ import streamlit.components.v1 as components
 import base64
 
 # Set up Streamlit page
-st.set_page_config(page_title="Smart Number Plate Detection with Browser Webcam", layout="centered", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Moving Vehicle Registration Plate Detection", layout="centered", initial_sidebar_state="expanded")
 
 # Initialize session state
 if "authenticated" not in st.session_state:
@@ -154,7 +154,7 @@ def browser_webcam_component():
     st.warning("Webcam functionality is limited to viewing and capturing. Use video or image upload for automated processing.")
 
 def detection_system():
-    st.title("🚘 Smart Number Plate Detection System")
+    st.title("🚘 Moving Vehicle Registration Plate Detection")
 
     if st.session_state["model"] is None:
         st.session_state["model"] = YOLO("yolov8n.pt")
