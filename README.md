@@ -1,5 +1,5 @@
 
-# 🚘 Smart Number Plate Detection System
+# 🚘 Moving Vehicle Registration Plate Detection
 
 A Streamlit-powered intelligent number plate detection system using YOLOv8 and EasyOCR. Detects number plates from images, videos, webcam, and ZIP directories, with integrated stolen vehicle alerts via encrypted hash lookups.
 
