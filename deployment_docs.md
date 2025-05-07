@@ -1,7 +1,6 @@
 
-# 📄 Deployment Documentation for Smart Number Plate Detection System
-
-**Project Name:** Smart Number Plate Detection System  
+# 📄 Deployment Documentation for Moving Vehicle Registration Plate Detection
+**Project Name:** Moving Vehicle Registration Plate Detection 
 **Deployed on:** [Streamlit Cloud](https://share.streamlit.io)
 
 ---
@@ -39,7 +38,7 @@
 ## 📁 Project Structure
 
 ```
-smart-number-plate-detection/
+Moving Vehicle Registration Plate Detection/
 │
 ├── app.py
 ├── yolov8n.pt
@@ -58,13 +57,6 @@ Once deployed, you’ll receive a shareable link like:
 
 `https://<your-streamlit-username>.streamlit.app`
 
-Example:
-
-```
-https://smart-plate-detection.streamlit.app
-```
-
----
 
 ## 📌 Notes
 
