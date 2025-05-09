@@ -5,8 +5,6 @@ import tempfile
 import easyocr
 from ultralytics import YOLO
 import hashlib
-import os
-import zipfile
 import imghdr
 
 # Set up Streamlit page
@@ -88,7 +86,7 @@ def detection_system():
         st.session_state["reader"] = easyocr.Reader(['en'])
 
     st.sidebar.header("Choose Input Mode")
-    input_type = st.sidebar.radio("Select input type", ["Image", "Video", "Directory (ZIP)"])
+    input_type = st.sidebar.radio("Select input type", ["Image", "Video"])
     conf_threshold = st.sidebar.slider("Detection Confidence", 0.25, 1.0, 0.5, 0.05)
 
     if input_type == "Image":
@@ -129,24 +127,6 @@ def detection_system():
                 progress_bar.progress((frame_count % 100) / 100)
             cap.release()
             progress_bar.empty()
-
-    elif input_type == "Directory (ZIP)":
-        uploaded_zip = st.file_uploader("Upload a ZIP file of images", type=["zip"])
-        if uploaded_zip:
-            with tempfile.TemporaryDirectory() as extract_dir:
-                with zipfile.ZipFile(uploaded_zip, "r") as zip_ref:
-                    zip_ref.extractall(extract_dir)
-                image_files = [os.path.join(root, file) for root, _, files in os.walk(extract_dir)
-                               for file in files if file.lower().endswith(('png', 'jpg', 'jpeg'))]
-                st.success(f"✅ Found {len(image_files)} image(s).")
-                for img_path in image_files:
-                    frame = cv2.imread(img_path)
-                    detections = detect_number_plate(frame, conf_threshold)
-                    result_frame = draw_detections(frame, detections)
-                    for _, _, _, _, plate_text, is_stolen in detections:
-                        if is_stolen:
-                            st.error(f"🚨 ALERT: {plate_text} - {encrypted_stolen_plates[hashlib.sha256(plate_text.encode()).hexdigest()]}")
-                    st.image(result_frame, channels="BGR", caption=os.path.basename(img_path))
 
 if st.session_state["authenticated"]:
     detection_system()
